@@ -1,0 +1,90 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage{a4wide}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\begin{document}
+\begin{center}
+  {\LARGE\bf Supplemental note for Week 3 Part 2}
+  \end{center}
+\begin{flushright}
+  {\large\bf ver. 20180107-01}\\
+ \ \\
+{\large\bf Ryoichi Yamamoto}\\
+\end{flushright}
+
+\section{Derivation of the mean square displacement}
+
+\begin{eqnarray}
+\left\langle |\Delta {\bf R}(t)|^2\right\rangle 
+&=& \left\langle\int_{0}^{t}d t_1 {\bf V}(t_1)\cdot\int_{0}^{t}d t_2  {\bf V}(t_2)\right\rangle \\
+&=& \int_{0}^{t}d t_1 \int_{0}^{t}d t_2 \left\langle{\bf V}(t_1)\cdot {\bf V}(t_2)\right\rangle \\
+&=&
+\int_{0}^{t}d t_1 \int_{0}^{t}d t_2 
+\frac{3\tilde{D}}{\zeta m} \exp\left(-\frac{\zeta}{m}|t_2-t_1|\right)\\
+&=&2
+\int_{0}^{t}d t_1 \int_{t_1}^{t}d t_2 
+\frac{3\tilde{D}}{\zeta m} \exp\left(-\frac{\zeta}{m}(t_2-t_1)\right)\\
+&=&\frac{6\tilde{D}}{\zeta m}
+\int_{0}^{t}d t_1 \left[ \exp\left(\frac{\zeta}{m}t_1\right)
+\int_{t_1}^{t}d t_2 \exp\left(-\frac{\zeta}{m}t_2\right)\right]\\
+&=&\frac{6\tilde{D}}{\zeta m}
+\int_{0}^{t}d t_1
+\left[
+\exp
+\left(\frac{\zeta}{m}t_1\right)
+\left(-\frac{m}{\zeta}\left(
+\exp\left(-\frac{\zeta}{m}t\right)
+-\exp\left(-\frac{\zeta}{m}t_1\right)
+\right)
+\right)
+\right]\\
+&=&\frac{6\tilde{D}}{\zeta^2}
+\int_{0}^{t}d t_1
+\left[
+\exp
+\left(\frac{\zeta}{m}t_1\right)
+\left(
+\exp\left(-\frac{\zeta}{m}t_1\right)
+-\exp\left(-\frac{\zeta}{m}t\right)
+\right)
+\right]
+\\
+&=&\frac{6\tilde{D}}{\zeta^2}
+\int_{0}^{t}d t_1
+\left[
+1-
+\exp
+\left(\frac{\zeta}{m}t_1\right)
+\exp\left(-\frac{\zeta}{m}t\right)
+\right]
+\\
+&=&\frac{6\tilde{D}}{\zeta^2}
+\left[
+t-
+\exp
+\left(-\frac{\zeta}{m}t\right)
+\int_{0}^{t}d t_1
+\exp\left(\frac{\zeta}{m}t_1\right)
+\right]
+\\
+&=&\frac{6\tilde{D}}{\zeta^2}
+\left[
+t-
+\exp
+\left(-\frac{\zeta}{m}t\right)
+\frac{m}{\zeta}
+\left(
+\exp\left(\frac{\zeta}{m}t\right)-1\right)
+\right]
+\\
+&=&\frac{6\tilde{D}}{\zeta^2}
+\left[
+t-\frac{m}{\zeta}+\frac{m}{\zeta}\exp\left(-\frac{\zeta}{m}t\right)
+\right]
+\\
+&\simeq&
+\frac{6\tilde{D}}{\zeta^2}t\ \ \ \ \ \ \ \ \ \ \ (t\rightarrow\infty)
+\end{eqnarray}
+\end{document}
+
